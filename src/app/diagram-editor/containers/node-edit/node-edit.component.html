@@ -1,0 +1,35 @@
+<div cdkTrapFocus [cdkTrapFocusAutoCapture]="true" class="w-96 overflow-hidden rounded border border-blue-600 bg-white px-6 pt-4 pb-2 shadow-lg">
+  <form [formGroup]="form" (ngSubmit)="saveNode()" (keyup.enter)="saveNode()">
+    <div class="mb-4 w-full max-w-sm">
+      <label class="sr-only" for="nodeText">Text</label>
+      <input
+        id="nodeText"
+        type="text"
+        formControlName="text"
+        class="focus:shadow-outline mr-2 w-full appearance-none rounded border py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
+        placeholder="Text"
+        cdkFocusInitial
+      />
+    </div>
+
+    <div class="mb-4 w-full max-w-sm">
+      <label class="sr-only" for="nodeShape">Shape</label>
+      <select
+        id="nodeShape"
+        formControlName="shape"
+        class="focus:shadow-outline mr-2 w-full rounded border py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
+      >
+        <option value="RoundEdges">Round Edges</option>
+        <option value="Rhombus">Rhombus</option>
+        <option value="Hexagon">Hexagon</option>
+        <option value="Circle">Circle</option>
+        <option value="Parallelogram">Parallelogram</option>
+        <option value="Stadium">Stadium</option>
+      </select>
+    </div>
+
+    <footer class="mb-2">
+      <button type="submit" [appButton] class="md-2 w-full" [disabled]="form.invalid">Save</button>
+    </footer>
+  </form>
+</div>

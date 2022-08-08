@@ -1,0 +1,15 @@
+<ng-container *ngIf="nodes$ | async as nodes">
+  <app-diagram #diagramRef [nodes]="nodes" (nodeClick)="nodeClicked($event)"></app-diagram>
+
+  <app-menu-container *ngIf="selectedNode" [diagram]="diagramRef" [node]="selectedNode">
+    <app-node-options-bar [node]="selectedNode" (optionClick)="nodeBarOptionClicked($event)"></app-node-options-bar>
+
+    <div class="mt-2">
+      <ng-container [ngSwitch]="section">
+        <app-node-add *ngSwitchCase="sections.AddNode"></app-node-add>
+        <app-node-edit *ngSwitchCase="sections.EditNode"></app-node-edit>
+        <app-node-links-manage *ngSwitchCase="sections.EditLinks"></app-node-links-manage>
+      </ng-container>
+    </div>
+  </app-menu-container>
+</ng-container>

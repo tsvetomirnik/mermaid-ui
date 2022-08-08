@@ -1,0 +1,94 @@
+<div
+  cdkTrapFocus
+  [cdkTrapFocusAutoCapture]="true"
+  class="w-96 overflow-hidden rounded border border-blue-600 bg-white px-6 pt-4 pb-2 shadow-lg"
+>
+  <form [formGroup]="form" (ngSubmit)="saveNode()" (keyup.enter)="saveNode()">
+    <div class="mb-4 w-full max-w-sm">
+      <ul
+        class="w-full items-center rounded-lg border border-gray-200 bg-white text-sm font-medium text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white sm:flex"
+      >
+        <li class="w-full border-b border-gray-200 dark:border-gray-600 sm:border-b-0 sm:border-r">
+          <div class="flex items-center pl-3">
+            <input
+              formControlName="position"
+              id="position-top-option"
+              type="radio"
+              value="TOP"
+              class="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-500 dark:bg-gray-600 dark:ring-offset-gray-700 dark:focus:ring-blue-600"
+            />
+            <label
+              for="position-top-option"
+              class="ml-2 w-full py-3 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >Top
+            </label>
+          </div>
+        </li>
+        <li class="w-full border-b border-gray-200 dark:border-gray-600 sm:border-b-0 sm:border-r">
+          <div class="flex items-center pl-3">
+            <input
+              formControlName="position"
+              id="position-bottom-option"
+              type="radio"
+              value="BOTTOM"
+              class="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-500 dark:bg-gray-600 dark:ring-offset-gray-700 dark:focus:ring-blue-600"
+            />
+            <label
+              for="position-bottom-option"
+              class="ml-2 w-full py-3 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >Bottom</label
+            >
+          </div>
+        </li>
+        <li class="w-full border-b border-gray-200 dark:border-gray-600 sm:border-b-0 sm:border-r">
+          <div class="flex items-center pl-3">
+            <input
+              formControlName="position"
+              id="position-child-option"
+              type="radio"
+              value="CHILD"
+              class="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-500 dark:bg-gray-600 dark:ring-offset-gray-700 dark:focus:ring-blue-600"
+            />
+            <label
+              for="position-child-option"
+              class="ml-2 w-full py-3 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >Child</label
+            >
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="mb-4 w-full max-w-sm">
+      <label class="sr-only" for="nodeText">Text</label>
+      <input
+        id="nodeText"
+        type="text"
+        formControlName="text"
+        class="focus:shadow-outline mr-2 w-full appearance-none rounded border py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
+        placeholder="Text"
+        cdkFocusInitial
+      />
+    </div>
+
+    <div class="mb-4 w-full max-w-sm">
+      <label class="sr-only" for="nodeShape">Shape</label>
+      <select
+        id="nodeShape"
+        formControlName="shape"
+        class="focus:shadow-outline mr-2 w-full rounded border py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
+      >
+        <option value="RoundEdges">Round Edges</option>
+        <option value="Rhombus">Rhombus</option>
+        <option value="Hexagon">Hexagon</option>
+        <option value="Circle">Circle</option>
+        <option value="Parallelogram">Parallelogram</option>
+        <option value="Stadium">Stadium</option>
+      </select>
+    </div>
+
+    <footer class="mb-2">
+      <button type="submit" [appButton] class="md-2 w-full" [disabled]="form.invalid">Add</button>
+    </footer>
+  </form>
+</div>
